@@ -31,4 +31,15 @@ suite('pref', function() {
       'pref("foo", "' + JSON.stringify(obj) + '");'
     );
   });
+
+  test('given a single object', function() {
+    var expected = '';
+    expected += pref('foo', true) + '\n';
+    expected += pref('bar', true);
+
+    assert.equal(
+      pref({ foo: true, bar: true }),
+      expected
+    );
+  });
 });
