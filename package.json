@@ -1,8 +1,8 @@
 {
-  "name": "mozilla-download",
+  "name": "mozilla-profile-builder",
   "version": "0.0.1",
   "author": "James Lal [:lightsofapollo]",
-  "description": "Download firefox/b2g-desktop runtimes",
+  "description": "Create profiles for firefox/b2g desktop",
   "main": "index.js",
   "keywords": [
     "firefox os",
