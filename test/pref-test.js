@@ -1,18 +1,19 @@
 suite('pref', function() {
   var assert = require('assert');
   var pref = require('../lib/pref');
+  var prefFn = 'pref';
 
   test('string', function() {
     assert.equal(
       pref('foo', 'bar'),
-      'pref("foo", "bar");'
+      prefFn + '("foo", "bar");'
     );
   });
 
   test('boolean', function() {
     assert.equal(
       pref('foo', true),
-      'pref("foo", true);'
+      prefFn + '("foo", true);'
     );
   });
 
@@ -20,7 +21,7 @@ suite('pref', function() {
     var obj = { a: true };
     assert.equal(
       pref('foo', obj),
-      'pref("foo", "' + JSON.stringify(obj) + '");'
+      prefFn + '("foo", "' + JSON.stringify(obj) + '");'
     );
   });
 
@@ -28,7 +29,7 @@ suite('pref', function() {
     var obj = ['foo', 'bar'];
     assert.equal(
       pref('foo', obj),
-      'pref("foo", "' + JSON.stringify(obj) + '");'
+      prefFn + '("foo", "' + JSON.stringify(obj) + '");'
     );
   });
 
