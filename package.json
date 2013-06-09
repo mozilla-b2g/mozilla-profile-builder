@@ -1,0 +1,27 @@
+{
+  "name": "mozilla-download",
+  "version": "0.0.1",
+  "author": "James Lal [:lightsofapollo]",
+  "description": "Download firefox/b2g-desktop runtimes",
+  "main": "index.js",
+  "keywords": [
+    "firefox os",
+    "gecko",
+    "b2g-desktop",
+    "firefox"
+  ],
+  "dependencies" : {
+    "tmp": "~0.0.20"
+  },
+  "devDependencies": {
+    "mocha": "~1.7"
+  },
+  "license": "MIT",
+  "engine": {
+    "node": ">=0.4"
+  },
+
+  "scripts": {
+    "test": "make test-node"
+  }
+}
