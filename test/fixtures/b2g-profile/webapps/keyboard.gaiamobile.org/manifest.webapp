@@ -1,0 +1,20 @@
+{
+  "name": "Keyboard",
+  "description": "Gaia Keyboard",
+  "type": "certified",
+  "developer": {
+    "name": "The Gaia Team",
+    "url": "https://github.com/mozilla-b2g/gaia"
+  },
+  "permissions": {
+    "settings":{ "access": "readwrite" },
+    "keyboard":{}
+  },
+  "locales": {
+    "en-US": {
+      "name": "Keyboard",
+      "description": "Gaia Keyboard"
+    }
+  },
+  "default_locale": "en-US"
+}

@@ -11,7 +11,8 @@
     "firefox"
   ],
   "dependencies" : {
-    "tmp": "~0.0.20"
+    "tmp": "~0.0.20",
+    "ncp": "~0.4"
   },
   "devDependencies": {
     "mocha": "~1.7"

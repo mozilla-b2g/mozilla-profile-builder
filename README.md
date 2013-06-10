@@ -4,7 +4,7 @@ Create profiles for mozilla runtimes (like firefox or b2g
 desktop).
 
 
-## Usage
+## Usage Firefox
 
 ``` js
 var firefox = require('mozilla-profile-builder').firefox;
@@ -26,6 +26,39 @@ firefox.profile({ userPrefs: prefs }, function(err, dirPath) {
 });
 
 ```
+
+### Usage B2G
+
+Very similar to firefox but requires a base profile.
+The base profile can be passed in or found via the runtime.
+
+``` js
+var b2g = require('mozilla-profile-builder').b2g;
+
+// launch about:config in firefox for more pref names.
+var prefs = {
+  // turn on dump so it will output to stdout
+  'browser.dom.window.dump.enabled': true,
+
+  // bump up max workers
+  'dom.workers.maxPerDomain': 100
+};
+
+
+var options = {
+  userPrefs: prefs,
+  runtime: '/Applications/B2G.app',
+  // or use the baseProfile directly
+  baseProfile: '/Applications/B2G.app/Contents/MacOS/gaia'
+};
+
+b2g.profile(options, function(err, dirPath) {
+  // do stuff
+});
+
+```
+
+
 
 ## LICENSE
 

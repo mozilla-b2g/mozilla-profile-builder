@@ -1,0 +1,151 @@
+{
+  "name": "Communications",
+  "description": "Gaia Communications",
+  "type": "certified",
+  "launch_path": "/",
+  "developer": {
+    "name": "The Gaia Team",
+    "url": "https://github.com/mozilla-b2g/gaia"
+  },
+  "entry_points": {
+    "dialer": {
+      "launch_path": "/dialer/index.html#keyboard-view",
+      "name": "Phone",
+      "icons": {
+        "60": "/dialer/style/icons/60/Dialer.png",
+        "120": "/dialer/style/icons/Dialer.png",
+        "320": "/dialer/style/icons/320/Dialer.png"
+      },
+      "locales": {
+        "ar": {
+          "name": "هاتف",
+          "description": "Gaia هاتف"
+        },
+        "en-US": {
+          "name": "Phone",
+          "description": "Gaia Phone"
+        },
+        "fr": {
+          "name": "téléphone",
+          "description": "téléphone Gaia"
+        },
+        "zh-TW": {
+          "name": "電話",
+          "description": "Gaia 電話"
+        }
+      }
+    },
+    "contacts": {
+      "launch_path": "/contacts/index.html",
+      "name": "Contacts",
+      "icons": {
+        "60": "/contacts/style/icons/60/Contacts.png",
+        "120": "/contacts/style/icons/Contacts.png",
+        "320": "/contacts/style/icons/320/Contacts.png"
+      },
+      "locales": {
+        "ar": {
+          "name": "اتصالات",
+          "description": "Gaia اتصالات"
+        },
+        "en-US": {
+          "name": "Contacts",
+          "description": "Gaia Contacts"
+        },
+        "fr": {
+          "name": "Contacts",
+          "description": "Contacts Gaia"
+        },
+        "zh-TW": {
+          "name": "聯絡人",
+          "description": "Gaia 聯絡人"
+        }
+      }
+    },
+    "ftu": {
+      "launch_path": "/ftu/index.html",
+      "name": "FTU",
+      "fullscreen": "true"
+    }
+  },
+  "permissions": {
+    "telephony":{},
+    "voicemail":{},
+    "contacts":{ "access": "readwrite" },
+    "mobileconnection":{},
+    "attention":{},
+    "settings":{ "access": "readwrite" },
+    "desktop-notification":{},
+    "alarms": {},
+    "systemXHR": {},
+    "wifi-manage":{},
+    "time": {},
+    "audio-channel-telephony":{},
+    "audio-channel-ringer":{},
+    "browser":{},
+    "idle":{},
+    "storage": {},
+    "device-storage:sdcard": { "access": "readonly" }
+  },
+  "orientation": "portrait-primary",
+  "activities": {
+    "pick": {
+      "filters": {
+        "type": ["webcontacts/contact","webcontacts/email"]
+       },
+      "disposition": "inline",
+      "href": "/contacts/index.html?pick",
+      "returnValue": true
+    },
+    "open": {
+      "filters": {
+        "type": "webcontacts/contact"
+      },
+      "disposition": "inline",
+      "href": "/contacts/index.html?open",
+      "returnValue": true
+    },
+    "new": {
+      "filters": {
+        "type": "webcontacts/contact"
+      },
+      "disposition": "inline",
+      "href": "/contacts/index.html?new",
+      "returnValue": true
+    },
+    "update": {
+      "filters": {
+        "type": "webcontacts/contact"
+      },
+      "disposition": "inline",
+      "href": "/contacts/index.html?update",
+      "returnValue": true
+    },
+    "dial": {
+      "filters": {
+        "type": "webtelephony/number",
+        "number": { "regexp":"/^[\\d\\s+#*().-]{0,50}$/" }
+      },
+      "href": "/dialer/index.html#keyboard-view",
+      "disposition": "window"
+    }
+  },
+  "messages": [
+     { "alarm": "/facebook/fb_sync.html" },
+     { "bluetooth-dialer-command": "/dialer/index.html#keyboard-view" },
+     { "headset-button": "/dialer/index.html#keyboard-view" },
+     { "notification": "/dialer/index.html#keyboard-view" },
+     { "telephony-new-call": "/dialer/index.html#keyboard-view" },
+     { "ussd-received": "/dialer/index.html#keyboard-view" }
+  ],
+  "redirects": [
+    {"from": "http://intense-tundra-4122.herokuapp.com/fbowd/oauth2_new/flow.html",
+    "to": "/redirects/redirect.html"},
+    {"from": "https://serene-cove-3587.herokuapp.com/liveowd/oauth2_new/flow_live.html",
+    "to": "/redirects/redirect.html"},
+    {"from": "http://intense-tundra-4122.herokuapp.com/fbowd/oauth2_new/dialogs_end.html",
+    "to": "/redirects/dialogs_end.html"},
+    {"from": "http://intense-tundra-4122.herokuapp.com/fbowd/oauth2_new/logout.json",
+    "to": "/redirects/logout.json"}
+  ]
+}
