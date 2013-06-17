@@ -21,7 +21,7 @@ var prefs = {
 // this will create a temp dir for a profile that will be
 // removed when the process closes... keep: true can be passed
 // to turn off the default behaviour
-firefox.profile({ userPrefs: prefs }, function(err, dirPath) {
+firefox.profile({ prefs: prefs }, function(err, dirPath) {
   
 });
 
@@ -44,12 +44,20 @@ var prefs = {
   'dom.workers.maxPerDomain': 100
 };
 
-
 var options = {
   userPrefs: prefs,
   runtime: '/Applications/B2G.app',
   // or use the baseProfile directly
-  baseProfile: '/Applications/B2G.app/Contents/MacOS/gaia'
+  baseProfile: '/Applications/B2G.app/Contents/MacOS/gaia',
+  // b2g also has settings which you can preload
+  settings: {
+    // turn off first run experience
+    'ftu.manifestURL': null
+  },
+  // also apps can be preloaded (packaged apps)
+  packagedApps: {
+    'origin-for-my-app.com': '/path/to/app'
+  }
 };
 
 b2g.profile(options, function(err, dirPath) {

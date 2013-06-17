@@ -6,10 +6,6 @@ suite('b2g', function() {
 
   var baseProfile = __dirname + '/fixtures/b2g-profile/';
 
-  test('.userPrefs', function() {
-    assert.ok(b2g.userPrefs);
-  });
-
   suite('#baseProfile', function() {
     var linux = __dirname + '/fixtures/b2g-linux';
     var mac = __dirname + '/fixtures/b2g-mac';
@@ -53,7 +49,7 @@ suite('b2g', function() {
     });
 
     test('prefs', function() {
-      var userJS = path + '/' + b2g.userPrefs;
+      var userJS = path + '/user.js';
       assert.ok(fs.existsSync(userJS));
 
       var content = fs.readFileSync(userJS, 'utf8');
