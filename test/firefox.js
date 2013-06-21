@@ -33,7 +33,7 @@ suite('firefox builder', function() {
       assert.ok(fs.existsSync(userJs));
 
       assert.equal(
-        pref(userPrefs),
+        '\n' + pref(userPrefs),
         fs.readFileSync(userJs, 'utf8'),
         'has prefs'
       );
