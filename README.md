@@ -1,5 +1,8 @@
 # Mozilla Profiler Builder
 
+[![Build
+Status](https://travis-ci.org/lightsofapollo/mozilla-profile-builder.png)](https://travis-ci.org/lightsofapollo/mozilla-profile-builder)
+
 Create profiles for mozilla runtimes (like firefox or b2g
 desktop).
 
