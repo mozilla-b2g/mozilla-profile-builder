@@ -13,6 +13,6 @@ var prefs = {
 // this will create a temp dir for a profile that will be
 // removed when the process closes... keep: true can be passed
 // to turn off the default behaviour
-firefox.profile({ userPrefs: prefs }, function(err, dirPath) {
+firefox.profile({ prefs: prefs }, function(err, dirPath) {
   console.log(fs.readFileSync(dirPath + '/user.js', 'utf8'));
 });
