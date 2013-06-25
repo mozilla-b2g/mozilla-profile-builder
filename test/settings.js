@@ -35,12 +35,14 @@ suite('settings', function() {
     });
 
     test('update settings', function(done) {
+      var perms = 'permissions.sqlite';
       options.settings.myfoo = 111;
       options.baseProfile = profile;
 
       b2g.profile(options, function(err, newProfile) {
         if (err) return callback(err);
         var settings = require(newProfile + '/settings.json');
+        assert.ok(!fs.existsSync(newProfile + '/' + perms));
         assert.equal(settings.myfoo, 111);
         done();
       });

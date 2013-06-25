@@ -1,6 +1,6 @@
 {
   "name": "mozilla-profile-builder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "James Lal [:lightsofapollo]",
   "description": "Create profiles for firefox/b2g desktop",
   "main": "index.js",
