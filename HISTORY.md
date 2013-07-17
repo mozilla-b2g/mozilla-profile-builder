@@ -1,3 +1,6 @@
+# 0.1.2
+  - hack so process.on('exit', function() {}); actually fires on sigint
+
 # 0.1.1
   - delete permissions db
 
