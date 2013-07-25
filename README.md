@@ -7,65 +7,47 @@ Create profiles for mozilla runtimes (like firefox or b2g
 desktop).
 
 
-## Usage Firefox
+### Usage 
+
+Example of using all options:
 
 ``` js
-var firefox = require('mozilla-profile-builder').firefox;
-
-// launch about:config in firefox for more pref names.
-var prefs = {
-  // turn on dump so it will output to stdout
-  'browser.dom.window.dump.enabled': true,
-
-  // bump up max workers
-  'dom.workers.maxPerDomain': 100
-};
-
-// this will create a temp dir for a profile that will be
-// removed when the process closes... keep: true can be passed
-// to turn off the default behaviour
-firefox.profile({ prefs: prefs }, function(err, dirPath) {
-  
-});
-
-```
-
-### Usage B2G
-
-Very similar to firefox but requires a base profile.
-The base profile can be passed in or found via the runtime.
-
-``` js
-var b2g = require('mozilla-profile-builder').b2g;
-
-// launch about:config in firefox for more pref names.
-var prefs = {
-  // turn on dump so it will output to stdout
-  'browser.dom.window.dump.enabled': true,
-
-  // bump up max workers
-  'dom.workers.maxPerDomain': 100
-};
+var profile = require('mozilla-profile-builder');
 
 var options = {
-  userPrefs: prefs,
-  runtime: '/Applications/B2G.app',
+  // special gaia base profile
+  profile: ['gaia', '/Applications/B2G.app']
   // or use the baseProfile directly
-  baseProfile: '/Applications/B2G.app/Contents/MacOS/gaia',
-  // b2g also has settings which you can preload
+  profile: ['baseProfile', '/Applications/B2G.app/Contents/MacOS/gaia'],
+  // omit profile for a blank directory to be used as base
+  
+  profile: '~/workspace/gaia/profile', // or give it a string to use this profile only (no copying)
+
+  // launch about:config in firefox for more pref names.
+  prefs: {
+    // turn on dump so it will output to stdout
+    'browser.dom.window.dump.enabled': true,
+
+    // bump up max workers
+    'dom.workers.maxPerDomain': 100
+  },
+
   settings: {
     // turn off first run experience
     'ftu.manifestURL': null
   },
+
   // also apps can be preloaded (packaged apps)
-  packagedApps: {
+  apps: {
     'origin-for-my-app.com': '/path/to/app'
   }
 };
 
-b2g.profile(options, function(err, dirPath) {
-  // do stuff
+profile.create(options, function(err, instance) {
+ // instance.path
+ // instance.destroy(function() {});
 });
+
 
 ```
 
