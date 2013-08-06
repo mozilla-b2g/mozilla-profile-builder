@@ -1,26 +1,22 @@
 suite('settings', function() {
-  var assert = require('assert'),
-      b2g = require('../lib/b2g'),
+  var createProfile = require('../../lib/createprofile'),
+      settings = require('../../lib/options/settings'),
       fs = require('fs'),
-      baseProfile = __dirname + '/fixtures/b2g-profile';
+      baseProfile = __dirname + '/../fixtures/b2g-profile';
 
   suite('intial settings', function() {
+
     var profile;
     var originalSettings;
     var options;
-    setup(function(done) {
-      options = {
-        baseProfile: baseProfile,
-        settings: {
-          'myfoo': true
-        }
-      };
 
+    setup(function(done) {
+      options = { settings: { myfoo: true } };
       originalSettings = require(baseProfile + '/settings.json');
-      b2g.profile(options, function(err, _profile) {
+      createProfile.baseProfile(baseProfile, function(err, _profile) {
         if (err) return done(err);
         profile = _profile;
-        done();
+        settings(profile, options, done);
       });
     });
 
@@ -37,9 +33,8 @@ suite('settings', function() {
     test('update settings', function(done) {
       var perms = 'permissions.sqlite';
       options.settings.myfoo = 111;
-      options.baseProfile = profile;
 
-      b2g.profile(options, function(err, newProfile) {
+      settings(profile, options, function(err, newProfile) {
         if (err) return callback(err);
         var settings = require(newProfile + '/settings.json');
         assert.ok(!fs.existsSync(newProfile + '/' + perms));

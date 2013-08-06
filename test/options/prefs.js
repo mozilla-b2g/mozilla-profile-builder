@@ -1,9 +1,8 @@
-suite('appendprefs', function() {
-  var appendPrefs = require('../lib/appendprefs.js'),
-      fixtureDir = __dirname + '/fixtures/',
+suite('prefs', function() {
+  var prefs = require('../../lib/options/prefs.js'),
+      fixtureDir = __dirname + '/../fixtures/',
       fixture = fixtureDir + '/user.js',
-      pref = require('../lib/pref'),
-      assert = require('assert'),
+      pref = require('../../lib/pref'),
       fs = require('fs');
 
   function removeFixture() {
@@ -17,7 +16,7 @@ suite('appendprefs', function() {
 
   test('append to new file', function(done) {
     var config = { 'foobar': true };
-    appendPrefs(fixtureDir, { prefs: config }, function(err) {
+    prefs(fixtureDir, { prefs: config }, function(err) {
       if (err) return done(err);
       assert.equal(
         fs.readFileSync(fixture, 'utf8'),
@@ -28,7 +27,7 @@ suite('appendprefs', function() {
   });
 
   test('no prefs', function(done) {
-    appendPrefs(fixtureDir, {}, function(err, path) {
+    prefs(fixtureDir, {}, function(err, path) {
       assert.deepEqual(path, fixtureDir);
       done();
     });
@@ -39,7 +38,7 @@ suite('appendprefs', function() {
     var config = { 'foobar': true, 'woot': true };
     fs.appendFileSync(fixture, prefix);
 
-    appendPrefs(fixtureDir, { prefs: config } , function(err) {
+    prefs(fixtureDir, { prefs: config } , function(err) {
       if (err) return callback(err);
       var expected = prefix + '\n' + pref(config);
       assert.equal(
