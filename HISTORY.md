@@ -1,3 +1,9 @@
+# 0.2.0
+  - new simplified api with less options and more power.
+  - killed .b2g function
+  - killed .firefox function
+  - new module.create entrypoint for profile builds.
+
 # 0.1.2
   - hack so process.on('exit', function() {}); actually fires on sigint
 
