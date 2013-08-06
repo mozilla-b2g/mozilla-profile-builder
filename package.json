@@ -1,6 +1,6 @@
 {
   "name": "mozilla-profile-builder",
-  "version": "0.1.2",
+  "version": "0.2.0-alpha",
   "author": "James Lal [:lightsofapollo]",
   "description": "Create profiles for firefox/b2g desktop",
   "main": "index.js",
@@ -13,10 +13,12 @@
   "dependencies" : {
     "tmp": "~0.0.20",
     "ncp": "~0.4",
+    "remove": "~0.1",
     "packaged-webapp": "~0.1.1"
   },
   "devDependencies": {
-    "mocha": "~1.7"
+    "mocha": "~1.7",
+    "sinon": "~1.7"
   },
   "license": "MIT",
   "engine": {
