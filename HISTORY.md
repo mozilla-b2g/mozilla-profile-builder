@@ -1,3 +1,6 @@
+# 0.3.0
+  - symlink app contents rather then copying them [massive perf win]
+
 # 0.2.0
   - new simplified api with less options and more power.
   - killed .b2g function
