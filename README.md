@@ -40,7 +40,11 @@ var options = {
   // also apps can be preloaded (packaged apps)
   apps: {
     'origin-for-my-app.com': '/path/to/app'
-  }
+  },
+
+  // copy files into profile once it has been created. Used for
+  // copying prebuilt databases and other files into profiles.
+  extracts: '/path/to/extract/dir'
 };
 
 profile.create(options, function(err, instance) {

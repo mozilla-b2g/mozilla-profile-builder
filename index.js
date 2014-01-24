@@ -15,7 +15,8 @@ var Profile = require('./lib/profile'),
 var OPTIONS = {
   'apps': './lib/options/apps',
   'prefs': './lib/options/prefs',
-  'settings': './lib/options/settings'
+  'settings': './lib/options/settings',
+  'extracts': './lib/options/extracts'
 };
 
 /**

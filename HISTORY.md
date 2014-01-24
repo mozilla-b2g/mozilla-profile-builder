@@ -1,3 +1,6 @@
+# 0.4.0
+  - add extracts feature
+
 # 0.3.0
   - symlink app contents rather then copying them [massive perf win]
 
