@@ -1,6 +1,6 @@
 {
   "name": "mozilla-profile-builder",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "James Lal [:lightsofapollo]",
   "description": "Create profiles for firefox/b2g desktop",
   "main": "index.js",
@@ -14,7 +14,8 @@
     "tmp": "~0.0.21",
     "remove": "~0.1",
     "packaged-webapp": "~0.1.1",
-    "traverse-directory": "~0.1.0"
+    "traverse-directory": "~0.1.0",
+    "fs-extra": "~0.8.1"
   },
   "devDependencies": {
     "mocha": "~1.7",
@@ -24,8 +25,11 @@
   "engine": {
     "node": ">=0.4"
   },
-
   "scripts": {
     "test": "make test"
+  },
+  "repository" :
+  { "type" : "git"
+  , "url" : "http://github.com/mozilla-b2g/mozilla-profile-builder.git"
   }
 }
